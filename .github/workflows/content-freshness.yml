@@ -1,0 +1,25 @@
+name: Content Freshness
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "31 3 1 * *"
+permissions:
+  contents: write
+jobs:
+  freshness:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Update freshness marker
+        shell: bash
+        run: |
+          mkdir -p docs
+          printf '%s\n' '# 📅 Curriculum Review Marker' ''             "Last automated review: $(date -u '+%Y-%m-%d %H:%M UTC')" ''             'This is a freshness timestamp, not a compliance certification.'             'Verify authoritative current sources before compliance decisions.' > docs/LAST_REVIEW.md
+      - name: Commit if changed
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/LAST_REVIEW.md
+          git diff --cached --quiet || git commit -m "docs: update freshness marker"
+          git push || true

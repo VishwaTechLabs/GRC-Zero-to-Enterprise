@@ -1,0 +1,28 @@
+name: Repository Quality
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 2 * * 1"
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Validate structure
+        shell: bash
+        run: |
+          test -f README.md
+          test -f SYLLABUS.md
+          test -d days
+          test -d labs
+          test -d frameworks
+          test -d templates
+          test -d specialized/ai-grc
+          test -d specialized/ot-ics-grc
+          test -f capstone/README.md
+          test "$(find days -name '*.md' | wc -l)" -ge 30
+          echo "Markdown files: $(find . -name '*.md' -not -path './.git/*' | wc -l)"

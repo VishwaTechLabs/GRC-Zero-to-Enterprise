@@ -1,0 +1,17 @@
+# 📚 Repository Index
+
+- 🏠 [README](../README.md)
+- 📚 [Complete syllabus](../SYLLABUS.md)
+- 🗺️ [30-day roadmap](../curriculum/30-day-master-roadmap.md)
+- 🎨 [Visual learning](visual-learning.md)
+- 🚀 [Start here](START-HERE.md)
+- 🧪 [Labs](../labs/)
+- 🧰 [Templates](../templates/)
+- 📖 [Frameworks](../frameworks/)
+- 🛠️ [Tools](../tools/README.md)
+- 🤖 [AI GRC](../specialized/ai-grc/)
+- 🏭 [OT/ICS GRC](../specialized/ot-ics-grc/)
+- 🏆 [Capstone](../capstone/README.md)
+- 🎤 [Interview prep](../interview-prep/150-questions.md)
+- 👨‍🏫 [Instructor guide](../instructor/teaching-guide.md)
+- 🙏 [Credits](../CREDITS.md)
